@@ -1,5 +1,5 @@
 """This controller makes the robot following the red ball."""
-
+# pip install opencv-python
 import cv2
 import numpy as np
 from controller import Robot
@@ -29,7 +29,7 @@ motor_right.setVelocity(0)
 
 # Main control loop
 while robot.step(timestep) != -1:
-    img = np.frombuffer(camera.getImage(), dtype=np.uint8).reshape((camera.getHeight(), camera.getWidth(), 4))
+    img = np.fromstring(camera.getImage(), dtype=np.uint8).reshape((camera.getHeight(), camera.getWidth(), 4))
 
     # Segment the image by color in HSV color space
     img = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
